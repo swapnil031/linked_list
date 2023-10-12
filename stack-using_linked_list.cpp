@@ -11,11 +11,14 @@ class node{
 };
 class stack{
     node *top;
+    int limit=5;
     public:
         stack(){
             this->top=NULL;
         }
+        int x=0;
         void push(int data){
+            if(x<limit){
             node *new_node=new node(data);
             if(top==NULL){
                 top=new_node;
@@ -23,7 +26,12 @@ class stack{
             }
             new_node->next=top;
             top=new_node;
+            x++;
             return;
+            }
+            else {
+               return;
+            }
         }
         void pop(){
             node *temp=top;
@@ -50,6 +58,11 @@ int main(){
     stack s1;
     s1.push(12);
     s1.push(20);
+    s1.push(15);
+    s1.push(18);
+    s1.push(22);
+    s1.push(26);
+    s1.push(27);
     s1.print();
     cout<<endl;
     cout<<"the top element is "<<s1.top_element()<<endl;
