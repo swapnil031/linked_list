@@ -30,7 +30,8 @@ class stack{
             return;
             }
             else {
-               return;
+              cout<<"stack overflow"<<endl;
+              return;
             }
         }
         void pop(){

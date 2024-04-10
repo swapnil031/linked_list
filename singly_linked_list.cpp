@@ -18,7 +18,7 @@ void insertathead(node* &head,int data){
     }
 //tail entering
 void insertAtTail(node* &head,int d){
-    node *temp=new node(d);
+            node *temp=new node(d);
             node *t=head;
             while(t->link!=NULL){
                 t=t->link;
@@ -77,7 +77,18 @@ void deleteatAnyPoint(node* &head,int position){
     prev->link=temp->link;
     free(temp);}
 }
-
+  void reverse(node* &head){
+        node *temp,*curr,*prev;
+        prev=NULL;
+        curr=head;
+        while(curr!=NULL){
+            temp=curr->link;
+            curr->link=prev;
+            prev=curr;
+            curr=temp;
+        }
+        head=prev;
+    }
 //printing node
 void printnode(node* &head){
     node *temp=head;
@@ -89,6 +100,7 @@ void printnode(node* &head){
 }
 int main(){
    node *head=new node(1);
+    insertAtTail(head,0);
    insertathead(head,2);
    insertathead(head,3);
    insertathead(head,4);

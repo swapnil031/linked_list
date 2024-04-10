@@ -12,7 +12,7 @@ class node{
 class linkedlist{
     node *head;
     public:
-            
+
          linkedlist(){
                 this->head=NULL;
             }
@@ -27,8 +27,30 @@ class linkedlist{
                 temp=temp->link;
             }
             temp->link=new_node;
-            
+
         }
+        void insertathead(int data){
+        node *temp=new node(data);
+        temp->link=head;
+        head=temp;
+    }
+void reverse_it()
+    {
+        // Initialize current, previous and next pointers
+        node* current = head;
+        node *prev = NULL, *next = NULL;
+
+        while (current != NULL) {
+            // Store next
+            next = current->link;
+            // Reverse current node's pointer
+            current->link = prev;
+            // Move pointers one position ahead.
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
         void display(){
             node *temp=head;
             while(temp!=NULL){
@@ -37,7 +59,7 @@ class linkedlist{
             }
             cout<<"end";
         }
-    
+
 };
 int main(){
     linkedlist l1;
@@ -45,5 +67,8 @@ int main(){
     l1.insertatTail(2);
     l1.insertatTail(3);
     l1.insertatTail(4);
+    l1.display();
+    cout<<endl;
+    l1.reverse_it();
     l1.display();
 }

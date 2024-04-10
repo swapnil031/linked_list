@@ -54,9 +54,9 @@ class doublylinked_list{
         }
         node *new_node=new node(value);
         new_node->next=temp->next;
-        temp->next=new_node;
-        new_node->prev=temp;
-        new_node->next->prev=new_node;
+		temp->next->prev=new_node;
+		new_node->prev=temp;
+		temp->next=new_node;
         return;
     }
     void deleteat_head(){
@@ -115,8 +115,8 @@ class doublylinked_list{
     }
     int size(){
         node *temp=head;
-        int n=1;
-        while(temp->next!=NULL){
+        int n=0;
+        while(temp!=NULL){
             temp=temp->next;
             n++;    
         }
